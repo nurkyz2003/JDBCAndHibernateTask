@@ -1,21 +1,19 @@
 package peaksoft;
 
-import peaksoft.dao.UserDaoHibernateImpl;
-import peaksoft.util.Util;
+import peaksoft.service.UserService;
+import peaksoft.service.UserServiceImpl;
 
 public class Main {
     public static void main(String[] args) {
         // реализуйте алгоритм здесь
-        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
-        userDaoHibernate.createUsersTable();
-     //   userDaoHibernate.dropUsersTable();
+        UserService userService = new UserServiceImpl();
 
-        //Util.createsessionFactory();
+        userService.saveUser("Nurkyz", "Kasymova", (byte)20);
+        userService.saveUser("Zhazgul", "Sarybaeva", (byte) 19);
+        userService.saveUser("Madina", "Musaeva", (byte) 16);
+        userService.saveUser("Erjigit", "Kalmyrzaev", (byte) 18);
 
-        userDaoHibernate.saveUser("Nurkyz", "Kasymova", (byte)20);
-        userDaoHibernate.saveUser("Zhazgul", "Sarybaev", (byte) 19);
-        userDaoHibernate.saveUser("Madina", "Musaeva", (byte) 16);
-        userDaoHibernate.saveUser("Erjigit", "Kalmyrzaev", (byte) 18);
+        userService.createUsersTable();
 
         /* System.out.println(userService.getAllUsers());*/
 
